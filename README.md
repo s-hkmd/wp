@@ -1,0 +1,2 @@
+# wp
+Template for WordPress
