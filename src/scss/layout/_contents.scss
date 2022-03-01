@@ -1,0 +1,9 @@
+.l-contents {
+  padding-top: $header-height;
+}
+
+@include mq(md) {
+  .l-contents {
+    padding-top: $header-height-mobile;
+  }
+}

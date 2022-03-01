@@ -1,2 +1,1 @@
-# wp
-Template for WordPress
+# WordPress Template (Vanilla JS)

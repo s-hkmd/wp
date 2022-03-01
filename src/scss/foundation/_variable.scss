@@ -1,0 +1,28 @@
+/**
+ * Foudation / Variable
+ *
+ * 変数とか
+ */
+
+// Image File Path
+$image: '../../src/img/';
+
+// Header Height
+$header-height: 100px;
+$header-height-mobile: 70px;
+
+// Z-index
+$z-index: (
+  loading-text: 5,
+  loading-mask: 4,
+  gnav: 3,
+  header: 2,
+  top-kv-scroll: 1,
+  top-kv-catch: 1,
+);
+
+// Transition
+$cubic: .5s cubic-bezier(0.4, 0.15, 0, 1);
+
+// Hover Mask Color
+$hover-mask-color: rgba(#74b2c4, .1);

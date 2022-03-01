@@ -1,0 +1,52 @@
+// align-items
+.u-align-items-center { align-items: center !important; }
+
+// Color
+.u-c-accent { color: var(--color-accent); }
+
+// font-size
+.u-fz-10 { font-size: 10px; }
+.u-fz-11 { font-size: 11px; }
+.u-fz-12 { font-size: 12px; }
+.u-fz-13 { font-size: 13px; }
+.u-fz-14 { font-size: 14px; }
+
+// display
+.u-block { display: block !important; }
+.u-flex { display: flex !important; }
+
+// margin-right
+.u-mr-auto { margin-right: auto !important; }
+
+// margin-bottom
+.u-mb-10 { margin-bottom: 10px !important; }
+.u-mb-20 { margin-bottom: 20px !important; }
+.u-mb-40 { margin-bottom: 40px !important; }
+.u-mb-60 { margin-bottom: 60px !important; }
+.u-mb-80 { margin-bottom: 80px !important; }
+.u-mb-100 { margin-bottom: 100px !important; }
+
+// margin-left
+.u-ml-auto { margin-left: auto !important; }
+
+// text-align
+.u-ta-c { text-align: center !important; }
+.u-ta-r { text-align: right !important; }
+.u-ta-l { text-align: left !important; }
+
+// display none
+.u-dn-pc {
+  @media (min-width: 1081px) {
+    display: none !important;
+  }
+}
+.u-dn-tab {
+  @media (max-width: 1080px) and (min-width: 768px) {
+    display: none !important;
+  }
+}
+.u-dn-sp {
+  @media (max-width: 767px) {
+    display: none !important;
+  }
+}

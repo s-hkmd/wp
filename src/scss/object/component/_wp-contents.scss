@@ -1,0 +1,350 @@
+.c-wp-contents {
+
+  /**
+   * Headings
+   */
+  h1:not([class]) {
+    display: flex;
+    font-size: $font-size-500;
+    line-height: 1.5em;
+    margin: 0 auto;
+    padding-bottom: 25px;
+    position: relative;
+    width: max-content;
+
+    &::before {
+      $content-width: 100vw - (10vw * 2);
+      $line-width: $content-width * 0.5;
+      background: var(--color-gray-200);
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: calc(50% - ($line-width * 0.5));
+      height: 1px;
+      width: $line-width;
+    }
+
+    &::after {
+      $line-width: 120px;
+      content: '';
+      background: var(--color-accent);
+      position: absolute;
+      bottom: 0;
+      left: calc(50% - ($line-width * 0.5));
+      height: 2px;
+      width: $line-width;
+    }
+  }
+
+  * + h1:not([class]) {
+    padding-top: 40px;
+  }
+
+  h2:not([class]) {
+    border-bottom: 1px solid var(--color-accent);
+    font-size: $font-size-300;
+    line-height: 1.7em;
+    padding-bottom: 5px;
+  }
+
+  * + h2:not([class]) {
+    padding-top: 40px;
+  }
+
+  h3:not([class]) {
+    $line-height: 1.7em;
+    $line-height-offset: $line-height - 1em;
+    color: var(--color-accent);
+    font-size: $font-size-200;
+    line-height: $line-height;
+    padding-left: 10px;
+    position: relative;
+
+    &:before {
+      background: var(--color-accent);
+      content: '';
+      position: absolute;
+      top: calc(#{$line-height-offset} / 2);
+      left: 0;
+      height: calc(100% - #{$line-height-offset});
+      width: 2px;
+    }
+  }
+
+  * + h3:not([class]) {
+    margin-top: 30px;
+  }
+
+  h4:not([class]) {
+    line-height: 1.7em;
+    color: var(--color-accent);
+  }
+
+  * + h4:not([class]) {
+    padding-top: 15px;
+  }
+
+  /**
+   * Paragraph
+   */
+  *:not(p:not(.point, .frame1, .frame2)) + p:not(.point, .frame1, .frame2) {
+    padding-top: 20px;
+  }
+
+  p:not(.point, .frame1, .frame2) + p:not(.point, .frame1, .frame2) {
+    padding-top: 15px;
+  }
+
+  p.point {
+    $label-height: 30px;
+    border: 1px solid var(--color-accent);
+    padding: calc($label-height + 20px) 30px 20px;
+    position: relative;
+
+    &::before {
+      background: var(--color-accent);
+      content: 'Point';
+      color: var(--color-white);
+      display: grid;
+      font-size: $font-size-50;
+      letter-spacing: -0.05em;
+      place-items: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: $label-height;
+      width: 100%;
+    }
+  }
+
+  p.frame1 {
+    border: 1px solid var(--color-gray-200);
+    padding: 20px 30px;
+  }
+
+  * + p.frame1 {
+    margin-top: 20px;
+  }
+
+  p.frame2 {
+    background: var(--color-gray-25);
+    padding: 20px 30px;
+  }
+
+  * + p.frame2 {
+    margin-top: 20px;
+  }
+
+  .under_line1 {
+    background: linear-gradient(transparent 60%, #ffff00 0%);
+  }
+
+  .under_line2 {
+    background: linear-gradient(transparent 60%, #bff0fa 0%);
+  }
+
+  a {
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
+
+  strong {
+    font-weight: 600;
+  }
+
+  .button {
+    border: 1px solid var(--color-accent);
+    border-radius: 7px;
+    display: block;
+    font-size: 16px;
+    padding: 15px 20px;
+    transition: background .15s ease-out, color .15s ease-out;
+    width: max-content;
+
+    @include hover {
+      &:hover {
+        background: var(--color-accent);
+        color: #fff;
+      }
+    }
+  }
+
+  /**
+   * Table
+   */
+  table {
+    position: relative;
+    width: 100%;
+  }
+
+  * + table:not([class]) {
+    margin-top: 20px;
+  }
+
+  th {
+    background: var(--color-gray-500);
+    border: 1px solid var(--color-gray-200);
+    color: var(--color-white);
+    line-height: 2em;
+    padding: 12px 20px;
+    text-align: left;
+  }
+
+  td {
+    border: 1px solid var(--color-gray-200);
+    line-height: 2em;
+    padding: 12px 20px;
+    font-size: $font-size-100;
+  }
+
+  /**
+   * List
+   */
+  ul:not([class]),
+  ol:not([class]) {
+    counter-reset: number;
+    display: grid;
+    gap: 5px;
+  }
+
+  * + ul:not([class]),
+  * + ol:not([class]) {
+    padding-top: 10px;
+  }
+
+  li {
+    align-items: baseline;
+    display: flex;
+    line-height: 1.7em;
+  }
+
+  ul:not([class]) li::before {
+    background: var(--color-accent);
+    border-radius: 100%;
+    content: '';
+    margin-right: 10px;
+    height: 10px;
+    width: 10px;
+    min-width: 10px;
+  }
+
+  ol:not([class]) li::before {
+    color: var(--color-accent);
+    content: counter(number);
+    counter-increment: number;
+    font-weight: $font-weight-bold;
+    margin-right: 10px;
+  }
+
+  /**
+   * iframe
+   */
+  iframe,
+  .mce-object-iframe {
+    aspect-ratio: 16 / 9;
+    display: flex;
+    height: 100%;
+    width: 100%;
+  }
+
+  * + iframe,
+  * + .mce-object-iframe {
+    padding-top: 20px;
+  }
+
+  /**
+   * Image
+   */
+  img {
+    display: flex;
+    height: 100%;
+    width: 100%;
+
+  }
+
+  * + img {
+    padding-top: 30px;
+  }
+}
+
+@include mq(md) {
+  .c-wp-contents {
+
+    * + h2:not([class]) {
+      padding-top: 30px;
+    }
+
+    * + h3:not([class]) {
+      margin-top: 20px;
+    }
+
+    *:not(p:not(.point, .frame1, .frame2)) + p:not(.point, .frame1, .frame2) {
+      padding-top: 15px;
+    }
+  
+    p:not(.point, .frame1, .frame2) + p:not(.point, .frame1, .frame2) {
+      padding-top: 10px;
+    }
+
+    p.point {
+      $label-height: 30px;
+      padding: calc($label-height + 15px) 20px 15px;
+    }
+
+    p.frame1,
+    p.frame2 {
+      padding: 15px 20px;
+    }
+
+    * + p.frame1,
+    * + p.frame2 {
+      margin-top: 15px;
+    }
+
+    * + table {
+      margin-top: 15px;
+    }
+
+    table {
+      display: block;
+      overflow-x: scroll;
+      width: calc(100vw - (3vw * 2));
+
+      &::after {
+        background: rgba(#000, .8);
+        border-radius: 50px;
+        content: 'スクロールできます';
+        color: var(--color-white);
+        font-size: 10px;
+        line-height: 1em;
+        opacity: 0;
+        padding: 8px 10px;
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        transition: opacity $cubic;
+      }
+
+      &.scrollable::after {
+        opacity: 1;
+      }
+
+      thead, tbody {
+        display: table;
+        width: 100%;
+        white-space: nowrap;
+      }
+    }
+  }
+}
+
+#tinymce {
+  padding: {
+    right: 2vw;
+    left: 2vw;
+  }
+
+  &::after {
+    display: none;
+  }
+}

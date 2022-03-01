@@ -1,0 +1,32 @@
+/**
+ * Global
+ */
+*,
+*::before,
+*::after  {
+  -webkit-appearance: unset;
+  appearance: unset;
+  border: none;
+  border-spacing: 0;
+  box-sizing: border-box;
+  font-size: unset;
+  font-weight: unset;
+  line-height: 1.3em;
+  list-style-type: none;
+  margin: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  outline: none;
+  padding: 0;
+  text-align: unset;
+  text-decoration: none;
+}
+
+/**
+ * WordPress Editor
+ */
+.mce-preview-object {
+  border: none;
+}

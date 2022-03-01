@@ -1,0 +1,201 @@
+.l-header {
+  align-items: center;
+  background: rgba(#fafafa, .5);
+  backdrop-filter: blur(10px) saturate(170%);
+  display: flex;
+  padding: 0 5vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: $header-height;
+  width: 100vw;
+  z-index: map-get($z-index, header);
+
+  /**
+   * Logo
+   */
+  &__logo {
+    margin-right: auto;
+    width: 290px;
+
+    a {
+      display: block;
+    }
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  /**
+   * Navigation
+   */
+  &__navigation-icon {
+    display: none;
+  }
+
+  &__navigation {
+    align-items: center;
+    display: flex;
+    margin-right: 30px;
+  }
+
+  &__navigation-group {
+    position: relative;
+    height: 100%;
+
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+
+  &__navigation-parent {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    height: 100%;
+
+    &::before {
+      $size: 7px;
+      content: '';
+      background: var(--color-accent);
+      border-radius: 100%;
+      opacity: 0;
+      position: absolute;
+      top: -15px;
+      transform: translateY(5px);
+      transition: opacity $cubic, transform $cubic;
+      height: $size;
+      width: $size;
+    }
+
+    @include hover {
+      &:hover {
+        opacity: 1;
+      }
+
+      &:hover::before {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+
+  &__navigation-child {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 15px 15px 30px rgba(#000, .1);
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    top: calc(100% + 15px);
+    left: 50%;
+    transform: translate(-50%, -5px);
+    transition: opacity $cubic .1s, transform $cubic .1s, visibility $cubic .1s;
+    visibility: hidden;
+    width: max-content;
+    min-width: 150px;
+
+    @include hover {
+      .l-header__navigation-group:hover & {
+        opacity: 1;
+        transform: translate(-50%, 0);
+        visibility: visible;
+        transition: opacity $cubic, transform $cubic, visibility $cubic;
+        z-index: 1;
+      }
+    }
+  }
+
+  &__navigation-item {
+    display: block;
+    padding: 10px 20px;
+    text-align: center;
+    transition: background $cubic, color $cubic;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid var(--color-gray-25);
+    }
+
+    @include hover {
+      &:hover {
+        background: var(--color-accent);
+        color: var(--color-white);
+        opacity: 1;
+      }
+    }
+  }
+
+  /**
+   * Language
+   */
+  &__language {
+    align-items: center;
+    display: flex;
+  }
+
+  &__language-item {
+    padding: 5px 15px;
+    position: relative;
+
+    &::before {
+      content: '';
+      background: var(--color-gray-25);
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform $cubic;
+      height: 100%;
+      width: 100%;
+      z-index: -1;
+    }
+
+    &:not(:last-child) {
+      border-right: 1px solid var(--color-gray-200);
+    }
+
+    &:not(&--current) {
+      color: var(--color-gray-500);
+    }
+
+    @include hover {
+      &:hover {
+        opacity: 1;
+      }
+
+      &:hover::before {
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+    }
+  }
+}
+
+@include mq(md) {
+  .l-header {
+    padding: 0 3vw;
+    height: $header-height-mobile;
+
+    &__logo {
+      width: 70%;
+    }
+
+    &__navigation-icon {
+      background: none;
+      border: 1px solid var(--color-gray-200);
+      border-radius: 20px;
+      display: block;
+      font-size: $font-size-50;
+      padding: 8px 15px;
+    }
+
+    &__navigation,
+    &__language {
+      display: none;
+    }
+  }
+}

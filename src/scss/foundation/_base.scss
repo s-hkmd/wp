@@ -1,0 +1,108 @@
+*::selection {
+  background: rgba(0, 0, 0, .1);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: $header-height + 40px;
+  -webkit-text-size-adjust: 100%; // iOS Safariで意図せず文字が拡大されて表示されるのを回避
+}
+
+body {
+  background: var(--color-base);
+  color: var(--color-black);
+  font-family: kinuta-mincho-stdn, sans-serif;;
+  font-style: normal;
+  font-size: $font-size-100;
+  font-weight: $font-weight-regular;
+  -moz-font-feature-settings: "palt";
+  -webkit-font-feature-settings: "palt";
+  font-feature-settings: "palt";
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: .025em;
+
+  // &::after {
+  //   background: var(--color-white);
+  //   content: '';
+  //   position: fixed;
+  //   top: 0;
+  //   left: 0;
+  //   visibility: visible;
+  //   opacity: 1;
+  //   transition: opacity $cubic, visibility $cubic;
+  //   height: calc(100% + 100px);
+  //   width: calc(100vw + 300px);
+  //   z-index: map-get($z-index, loading-mask);
+  // }
+
+  // &[data-page-state=loading],
+  // &[data-page-state=leave] {
+  //   overflow: hidden;
+  // }
+
+  &[data-page-state=entered]::after {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &.navigation-open {
+    overflow: hidden;
+  }
+}
+
+h1, h2, h3, h4, h5 {
+  word-break: break-all;
+}
+
+img {
+  object-fit: cover;
+  width: auto;
+  max-width: 100%;
+}
+
+p {
+  color: var(--color-black);
+  line-height: 2em;
+  text-align: justify;
+}
+
+a {
+  color: inherit;
+  transition: opacity .15s ease-out;
+}
+
+@include hover {
+  a:hover {
+    opacity: .6;
+  }
+}
+
+strong {
+  font-weight: 500;
+}
+
+button {
+  color: inherit;
+  cursor: pointer;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+input,
+textarea {
+  font-family: kinuta-mincho-stdn, sans-serif;
+  font-style: normal;
+  font-size: $font-size-100;
+  font-weight: $font-weight-regular;
+  -moz-font-feature-settings: "palt";
+  -webkit-font-feature-settings: "palt";
+  font-feature-settings: "palt";
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: .025em;
+
+  &::placeholder {
+    color: var(--color-gray-500);
+  }
+}

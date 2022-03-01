@@ -1,0 +1,75 @@
+.c-pagination {
+  @include content-width;
+  display: flex;
+  justify-content: center;
+  padding-top: 60px;
+
+  &__item {
+
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+
+    .page-numbers {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      transition: border $cubic;
+      height: 50px;
+
+      &:not(.current, .dots) {
+        border: 1px solid var(--color-gray-200);
+      }
+
+      &:not(.next, .prev, .dots) {
+        width: 50px;
+      }
+
+      &.prev, &.next {
+        width: 100px;
+      }
+
+      &.next {
+        margin-left: 10px;
+      }
+
+      &.prev {
+        margin-right: 10px;
+      }
+
+      &.current {
+        background: var(--color-accent);
+        color: var(--color-white);
+      }
+
+      @include hover {
+        &:not(.current, .dots):hover {
+          border: 1px solid var(--color-accent);
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+@include mq(md) {
+  .c-pagination {
+    padding-top: 20px;
+
+    &__item {
+  
+      &:not(:last-child) {
+        margin-right: 10px;
+      }
+
+      .page-numbers {
+        height: 36px;
+        width: 36px;
+
+        &.dots {
+          width: 20px;
+        }
+      }
+    }
+  }
+}
