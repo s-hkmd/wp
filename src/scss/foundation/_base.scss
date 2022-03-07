@@ -72,7 +72,7 @@ a {
 }
 
 @include hover {
-  a:hover {
+  a:not([class]):hover {
     opacity: .6;
   }
 }
