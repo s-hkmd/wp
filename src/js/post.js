@@ -1,5 +1,4 @@
 /**
- * Author: Sho Hakamada <sho.hkmd@gmail.com>
  * Description: JavaScript for Pages
  */
 
