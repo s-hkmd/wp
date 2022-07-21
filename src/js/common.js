@@ -30,10 +30,10 @@
   view_port_meta.setAttribute('name', 'viewport');
   if ((ua.indexOf('iPhone') > 0) || ua.indexOf('iPod') > 0 || (ua.indexOf('Android') > 0 && ua.indexOf('Mobile') > 0)) {
     // スマホの場合
-    view_port_meta.setAttribute('content', 'width=device-width, initial-scale=1');
+    view_port_meta.setAttribute('content', 'width=device-width, minimum-scale=1, maximum-scale=1, initial-scale=1');
   } else {
     // それ以外の場合
-    view_port_meta.setAttribute('content', 'width=1080, initial-scale=1.0');
+    view_port_meta.setAttribute('content', 'width=1080, minimum-scale=1, maximum-scale=1, initial-scale=1');
   }
   head.prepend(view_port_meta);
 })();
